@@ -1,0 +1,74 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.nav-button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #2980b9;
+}
+
+.nav-button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.back-button {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #2980b9;
+}
+
+.buttons-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.buttons-block button,
+.buttons-block a {
+  flex-grow: 1;
+  text-align: center;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  margin: 0 10px;
+}
+
+.buttons-block button:hover,
+.buttons-block a:hover {
+  background-color: #2980b9;
+}
+
+.buttons-block button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
