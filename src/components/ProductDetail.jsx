@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { WishlistContext } from '../contexts/WishlistContext';
+import ProductCard from '../components/ProductCard/ProductCard';
 import '../App.css';
 import './ProductDetail.css';
 
@@ -12,7 +13,8 @@ const ProductDetail = () => {
   const currentItemIndex = wishlistItems.findIndex(
     (item) => item.id === parseInt(id)
   );
-  const item = wishlistItems[currentItemIndex];
+
+  const item = wishlistItems.find((item) => item.id === parseInt(id));
 
   const handleNavigation = (direction) => {
     const newIndex = currentItemIndex + direction;
@@ -29,36 +31,34 @@ const ProductDetail = () => {
   if (!item) return <div>Товар не найден</div>;
 
   return (
-    <div className="product-detail">
-      <div className="product-detail-content">
-        <img src={item.imageUrl} alt={item.name} />
-        <h1>{item.name}</h1>
-        <p>{item.description}</p>
-        <p>Цена: ${item.price}</p>
-        <div className="buttons-block">
-          <button
-            className="nav-button"
-            onClick={() => handleNavigation(-1)}
-            disabled={currentItemIndex === 0}
-          >
-            &#9664; Назад
-          </button>
-          <a href={item.productLink} target="_blank" rel="noopener noreferrer">
-            Купить
-          </a>
-          <a className="back-button" onClick={handleBack}>
-            Главная
-          </a>
-          <button
-            className="nav-button"
-            onClick={() => handleNavigation(1)}
-            disabled={currentItemIndex === wishlistItems.length - 1}
-          >
-            Вперед &#9654;
-          </button>
-        </div>
-      </div>
-    </div>
+    <ProductCard
+      item={item}
+      buttons={[
+        {
+          label: '◀ Назад',
+          onClick: () => handleNavigation(-1),
+          className: 'nav-button button',
+          disabled: currentItemIndex === 0,
+        },
+        {
+          label: 'Купить',
+          onClick: () => window.open(item.productLink, '_blank'),
+          className: 'buy-button button',
+        },
+        {
+          label: 'Главная',
+          onClick: handleBack,
+          className: 'back-button button',
+        },
+        {
+          label: 'Вперед ▶',
+          onClick: () => handleNavigation(1),
+          className: 'nav-button button',
+          disabled: currentItemIndex === wishlistItems.length - 1,
+        },
+      ]}
+      showDescription={true}
+    />
   );
 };
 

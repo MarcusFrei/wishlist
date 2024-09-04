@@ -4,16 +4,6 @@
   padding: 20px;
 }
 
-.nav-button {
-  background-color: #3498db;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
 .nav-button:hover {
   background-color: #2980b9;
 }
@@ -21,19 +11,6 @@
 .nav-button:disabled {
   background-color: #bdc3c7;
   cursor: not-allowed;
-}
-
-.back-button {
-  display: inline-block;
-  margin-top: 20px;
-  background-color: #3498db;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
 }
 
 .back-button:hover {
@@ -59,7 +36,7 @@
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  /* transition: background-color 0.3s ease; */
   margin: 0 10px;
 }
 

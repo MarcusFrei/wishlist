@@ -1,15 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import NewItemModal from '../Modals/NewItemModal/NewItemModal';
 import Modal from '../Modals/Modal/Modal';
 import { WishlistContext } from '../../contexts/WishlistContext';
+import ProductCard from '../ProductCard/ProductCard';
 import './AdminPanel.css';
 
 const AdminPanel = () => {
   const { wishlistItems, setWishlistItems } = useContext(WishlistContext);
   const [editingItem, setEditingItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isNewItemModalOpen, setIsNewItemModalOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleEdit = (item) => {
@@ -18,12 +17,12 @@ const AdminPanel = () => {
   };
 
   const handleAddNewItem = () => {
-    setIsNewItemModalOpen(true);
+    setEditingItem(null);
+    setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
-    setIsNewItemModalOpen(false);
     setEditingItem(null);
   };
 
@@ -44,33 +43,24 @@ const AdminPanel = () => {
       </div>
       <div className="items-list">
         {wishlistItems.map((item) => (
-          <div key={item.id} className="admin-item">
-            <img
-              src={item.imageUrl}
-              alt={item.name}
-              className="item-thumbnail"
-            />
-            <div>
-              <h2>{item.name}</h2>
-              <p className="item-description">{item.description}</p>
-              <button onClick={() => handleEdit(item)} className="edit-button">
-                Редактировать
-              </button>
-            </div>
-          </div>
+          <ProductCard
+            key={item.id}
+            item={item}
+            buttons={[
+              {
+                label: 'Редактировать',
+                onClick: () => handleEdit(item),
+                className: 'edit-button',
+              },
+            ]}
+            showDescription={true}
+          />
         ))}
       </div>
 
       {isModalOpen && (
         <Modal
           editingItem={editingItem}
-          setWishlistItems={setWishlistItems}
-          handleCloseModal={handleCloseModal}
-        />
-      )}
-
-      {isNewItemModalOpen && (
-        <NewItemModal
           setWishlistItems={setWishlistItems}
           wishlistItems={wishlistItems}
           handleCloseModal={handleCloseModal}
