@@ -33,6 +33,14 @@ export const WishlistProvider = ({ children }) => {
         'https://dr1ver.ru/wp-content/uploads/2021/04/nissan-skyline-r34-forsazh-2-2.jpg',
       productLink: 'https://example.com/product3',
     },
+    {
+      id: 4,
+      name: 'Порш Тайкан',
+      description: 'Это порш',
+      price: 200000,
+      imageUrl: 'https://images.drive.ru/i/0/5f3ce1daec05c47070000008.jpg',
+      productLink: 'https://example.com/product4',
+    },
   ]);
 
   return (
