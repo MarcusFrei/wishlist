@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Modal from '../Modals/Modal/Modal';
-import { WishlistContext } from '../../contexts/WishlistContext';
-import ProductCard from '../ProductCard/ProductCard';
+import { WishlistContext } from '../../../contexts/WishlistContext';
+import ProductCard from '../../ProductCard/ProductCard';
 import './AdminPanel.css';
 
 const AdminPanel = () => {

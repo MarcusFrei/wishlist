@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Wishlist from './components/Wishlist';
-import ProductDetail from './components/ProductDetail';
-import AdminPanel from './components/Admin/AdminPanel';
+import Wishlist from './components/Pages/Whishlist/Wishlist';
+import ProductDetail from './components/ProductDetail/ProductDetail';
+import AdminPanel from './components/Pages/Admin/AdminPanel';
 import { WishlistProvider } from './contexts/WishlistContext';
 import './App.css';
 

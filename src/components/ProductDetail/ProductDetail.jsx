@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { WishlistContext } from '../contexts/WishlistContext';
-import ProductCard from '../components/ProductCard/ProductCard';
-import '../App.css';
+import { WishlistContext } from '../../contexts/WishlistContext';
+import ProductCard from '../../components/ProductCard/ProductCard';
 import './ProductDetail.css';
 
 const ProductDetail = () => {
