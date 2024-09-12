@@ -30,3 +30,5 @@ const ProductCard = ({ item, buttons, showDescription = false }) => {
 };
 
 export default ProductCard;
+
+/// Переписать кнопки с использование Link из react-router-dom, чтобы избавится от лапши сверху
